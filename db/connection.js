@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const mongoURI = 'mongodb://localhost:27017/invest-roll'
+const mongoURI = process.env.mongoURI
 
 
 mongoose.connect(mongoURI, {

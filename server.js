@@ -1,7 +1,9 @@
+require('dotenv').config()
 const express = require('express')
-
 const app = express()
-const PORT = 3000
+
+
+const { PORT, SESSION_SECRET } = process.env
 
 const methodOverride = require('method-override')
 const expressEjsLayout = require('express-ejs-layouts')
