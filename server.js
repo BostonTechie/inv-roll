@@ -3,7 +3,8 @@ const express = require('express')
 const app = express()
 
 
-const { PORT, SESSION_SECRET } = process.env
+
+app.set("port", process.env.PORT || 8000)
 
 const methodOverride = require('method-override')
 const expressEjsLayout = require('express-ejs-layouts')
@@ -42,5 +43,9 @@ app.get('/', (req, res) => {
 // the use in this section is the home url
 app.use('/index',invController)
 
-app.listen(PORT, ()=> console.log(`Welcome to the rollForward ${PORT}`))
 
+app.set("port", process.env.PORT || 8000);
+
+app.listen(app.get("port"), () => {
+  console.log(`✅ PORT: ${app.get("port")} 🌟`);
+});
