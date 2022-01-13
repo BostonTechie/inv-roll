@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body {
+        height: 55%;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <img class ="formPic" src="/images/sailboat.PNG" alt="sailboat"> 
+    <legend style="margin-top:1em">Monthly Investment Entry</legend>
+<form style="margin-top: 50px;" action="/index" enctype="multipart/form-data" method='POST'>
+    
+    <fieldset>
+        <table>
+        <thead>
+            <tr>
+                <th> New Investment Name </th>
+                <td><input class="requiredField" placeholder="New Investment Name" type="text" name="name" id='name'></td>   
+            </tr>
+
+            <tr>
+                <th> Statement Date</th>
+                <td><input class="requiredField" placeholder="Statement Date" type="date" pattern="\d{1,2}/\d{1,2}/\d{4}" title="mm/dd/yyyy" name="statementDate" id='statementDate'></td>
+            </tr>
+
+            <tr>
+                <th> Beginning Balance</th>
+                <td><input placeholder="Beginning Balance" type="number" step=".01" name="beginningBalance" oninput="validate(this)" id='beginningBalance' ></td>
+            </tr>
+             
+            <tr>
+                <th> Purchases</th>
+                <td><input placeholder="Purchases"  type="number" oninput="validate(this)" step=".01" name="purchases"  id='purchases' ></td>
+            </tr>
+         
+            <tr>
+                <th> Income</th>
+                <td><input placeholder="Income"  type="number" oninput="validate(this)" step=".01" name="income" id='income' ></td>
+            </tr>
+         
+            <tr>
+                <th>Withdrawals</th>
+                <td><input placeholder="Withdrawals"  type="number" oninput="validate(this)" step=".01" name="withdrawals" id='withdrawals' ></td>
+            </tr>
+         
+            <tr>
+                <th> Realized</th>
+               <td><input placeholder="Realized"  type="number" oninput="validate(this)" step=".01" name="realized" id='realized'></td>
+            </tr>
+         
+            <tr>
+                <th> Unrealized</th>
+                <td><input placeholder="Unrealized"  type="number" oninput="validate(this)" step=".01" name="unrealized" id='unrealized'></td> 
+            <tr>
+         
+            <tr>      
+                <th>Fees</th>
+                <td><input placeholder="Fees"  type="number" oninput="validate(this)" step=".01" name="fees" id='fees' ></td>
+           </tr>
+         
+            <tr>
+                <th>Ending Investment Balance</th>
+                <td><input placeholder="Ending Investment Balance"  type="number" oninput="validate(this)" step=".01" name="endingBalance" id='endingBalance' ></td>
+           </tr>
+
+           <tr>
+                <th>Remaining Variance</th>
+                <div><td id="mathCalc" style=" text-align: center;" placeholder="Auto Calc" class="requiredField" type="number" step=".01"  readonly></td>
+            </tr>
+            
+            <tr>
+                <th>File</th>
+                <div><td> <input type="file"  name="myupload" id='myupload'></td>
+            </tr>
+            
+            <tr>
+                <th>Auto enables ---></th>
+                <td><input style="float:right;" class="submitBttn" id="submitEntry" type="submit" value='Submit entry'></td>
+            </tr>
+        
+        </thead>   
+        </table>
+    </fieldset>
+
+    
+</form>
+
+
+
+
+<div id="Container">
+    <div id="Copyright" class="nav-top">
+        <nav role="navigation">
+            <div class="nav-top-social">
+              <a href="https://www.facebook.com/andrew.urquhart" target="_blank" class="social-link w-inline-block"><img src="/images/facebook.svg" width="18" alt="facebook link"></a>
+              <a href="https://www.linkedin.com/in/andrew-urquhart/" target="_blank" class="social-link w-inline-block"><img src="/images/link.png" width="18"alt="linkedin link"></a>
+              <a href="https://github.com/BostonTechie" target="_blank" class="social-link w-inline-block"><img src="/images/git.png" width="18" alt="github link"></a>
+            </div>
+          </nav>
+    </div>
+    <div id="Stretch">
+ 
+    </div>
+</div>
+
+
+
+
+
+<script src="/js/mathChecker.js"></script>
+
+<script>
+    // forces user to only enter two decimal places
+    //function found at https://tutorial.eyehunts.com/js/javascript-limit-input-to-2-decimal-places-restrict-input-example/
+
+    var validate = function(e) {
+        var t = e.value;
+        e.value = (t.indexOf(".") >= 0) ? (t.substr(0, t.indexOf(".")) + t.substr(t.indexOf("."), 3)) : t;
+    }
+
+
+
+</script>
+
+</body>
+</html>

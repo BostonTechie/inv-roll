@@ -1,0 +1,86 @@
+
+<html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Document</title>
+       <style>
+           html, body {
+           height: 59%;
+           }
+       </style>
+   </head>
+   <body>
+
+      
+
+      <img class ="formPic" src="/images/flower.PNG" alt="flower"> 
+      <legend style="margin-top:1em">Showing the detail for <%=rollData.name%> on <%=rollData.statementDate%></legend>
+   
+
+<fieldset>
+    
+<Table>
+    <thead>
+        <tr>
+            <th>Database ID </th>
+            <td><%=rollData.id%></td>
+            <td><a href="/index/<%= rollData.id%>/edit">
+               <img style="float: center;"src="/images/editIcon.PNG" alt="Edit this entry">
+            </a></td>
+         </tr>
+       
+        <tr>
+           <th>Name </th><td><%=rollData.name%></td>
+        </tr>
+
+        <tr><th>Date</th><td><%=rollData.statementDate%></td>
+        </tr>
+
+        <tr><th>Beginning Balance </th><td><div class='currencyRender'><%=rollData.beginningBalance%></div></td>
+        </tr>
+
+        <tr><th>Purchases </th> <td><div class='currencyRender'><%=rollData.purchases%></div></td>
+        </tr>
+           <tr><th>Income </th><td><div class='currencyRender'><%=rollData.income%></div></td>
+        </tr>
+           <tr><th>Withdrawals </th><td><div class='currencyRender'><%=rollData.withdrawals%></div></td>
+        </tr>
+           <tr><th>Realized Gains/(Loss) </th><td><div class='currencyRender'><%=rollData.realized%></div></td>
+        </tr>
+           <tr><th>Unrealized Gains/(Loss) </th><td><div class='currencyRender'><%=rollData.unrealized%></div></td>
+        </tr>
+           <tr><th>Fees </th> <td><div class='currencyRender'><%=rollData.fees%></div></td>
+        </tr>
+           <tr><th>Ending Balance </th><td><div class='currencyRender'><%=rollData.endingBalance%></div></td>
+        </tr>
+       </tr>
+   </thead>
+</table>
+</fieldset>
+
+
+<form action='/index/<%= rollData.id%>?_method=DELETE' method='POST'>
+    <input style="background-color: red; font-weight: 800;"type="submit" value='Delete this item'> 
+</form>
+
+
+
+<div id="Container">
+   <div id="Copyright" class="nav-top">
+       <nav role="navigation">
+             <a href="https://www.facebook.com/andrew.urquhart" target="_blank" class="social-link w-inline-block"><img src="/images/facebook.svg" width="18" alt="facebook link"></a>
+             <a href="https://www.linkedin.com/in/andrew-urquhart/" target="_blank" class="social-link w-inline-block"><img src="/images/link.png" width="18"alt="linkedin link"></a>
+             <a href="https://github.com/BostonTechie" target="_blank" class="social-link w-inline-block"><img src="/images/git.png" width="18" alt="github link"></a>
+           </div>
+         </nav>
+   </div>
+   <div id="Stretch">
+
+   </div>
+</div>
+
+<script src="/js/currencyRender.js"></script>
+</body>
+</html>

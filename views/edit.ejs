@@ -1,0 +1,119 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body {
+        height: 55.2%;
+        }
+    </style>
+</head>
+<body>
+    
+    <img class ="formPic" src="/images/flower.PNG" alt="flower"> 
+    <legend style="margin-top:1em">Showing the detail for <%=rollData.name%> on <%=rollData.statementDate%></legend>
+ 
+<form action="/index/<%= rollData.id %>?_method=PUT" method='POST'>
+    <fieldset>
+        
+    <Table>
+        <thead>
+            <tr>
+                <th>Database ID </th><td><%=rollData.id%></td>
+                <td style='background-color: lightgreen;'> Edit this column</td>
+            </tr>
+        
+            <tr>
+                <th>Name </th><td><%=rollData.name%></td>
+                <td><input class="requiredField" type="text" name="name" id='name' value="<%= rollData.name%>"></td>
+            </tr>
+
+            <tr>
+                <th>Date</th>
+                <td><%=rollData.statementDate%></td>
+                <td><input class="requiredField" type="date" name="statementDate" pattern="\d{1,2}/\d{1,2}/\d{4}" title="mm/dd/yyyy" id='statementDate' value="<%= rollData.statementDate%>"></td>
+            </tr>
+
+            <tr>
+                <th>Beginning Balance </th>
+                <td><div class='currencyRender'><%=rollData.beginningBalance%></div></td>
+                <td><input type="number"  step=".01" name="beginningBalance" id='beginningBalance' value="<%= rollData.beginningBalance%>"></td>
+            </tr>
+
+            <tr>
+                <th>Purchases </th> 
+                <td><div class='currencyRender'><%=rollData.purchases%></div></td>
+                <td><input type="number" name="purchases" step=".01" id='purchases' value="<%= rollData.purchases%>"></td>
+            </tr>
+            
+            <tr>
+                <th>Income </th>
+                <td><div class='currencyRender'><%=rollData.income%></div></td>
+                <td><input type="number" name="income" step=".01" id='income' value="<%= rollData.income%>"></td>
+            </tr>
+            
+            <tr>
+                <th>Withdrawals </th>
+                <td><div class='currencyRender'><%=rollData.withdrawals%></div></td>
+                <td><input type="number" name="withdrawals" step=".01" id='withdrawals' value="<%= rollData.withdrawals%>"></td>
+            </tr>
+
+            <tr>
+                <th>Realized Gains/(Loss) </th>
+                <td><div class='currencyRender'><%=rollData.realized%></div></td>
+                <td><input type="number" name="realized" step=".01" id='realized' value="<%= rollData.realized%>"></td>
+            </tr>
+            
+            <tr>
+                <th>Unrealized Gains/(Loss) </th>
+                <td><div class='currencyRender'><%=rollData.unrealized%></div></td>
+                <td><input type="number" name="unrealized" step=".01" id='unrealized' value="<%= rollData.unrealized%>"></td>
+            </tr>
+            
+            <tr><th>Fees </th> 
+                <td><div class='currencyRender'><%=rollData.fees%></div></td>
+                <td><input type="number" name="fees" id='fees' step=".01" value="<%= rollData.fees%>"></td>
+            </tr>
+            
+            <tr>
+                <th>Ending Balance </th>
+                <td><div class='currencyRender'><%=rollData.endingBalance%></div></td>
+                <td><input type="number" name="endingBalance" step=".01" id='endingBalance' value="<%= rollData.endingBalance%>"></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>Remaining Variance</td>
+                <div><td id="mathCalc" style=" text-align: center;" placeholder="Auto Calc" class="requiredField" type="number" step=".01"  readonly></td>
+            </tr>
+      
+        </thead>
+    </table>
+        <input class = "submitBttn" id="submitEntry" style="float: right;"type="submit" value='Done Editing'>
+    </fieldset>
+    
+</form>
+
+<form action='/index/<%= rollData.id%>?_method=DELETE' method='POST'>
+    <input style="background-color: red; font-weight: 800;"type="submit" value='Delete this item'> 
+</form>
+
+
+<div id="Container">
+    <div id="Copyright" class="nav-top">
+        <nav role="navigation">
+              <a href="https://www.facebook.com/andrew.urquhart" target="_blank" class="social-link w-inline-block"><img src="/images/facebook.svg" width="18" alt="facebook link"></a>
+              <a href="https://www.linkedin.com/in/andrew-urquhart/" target="_blank" class="social-link w-inline-block"><img src="/images/link.png" width="18"alt="linkedin link"></a>
+              <a href="https://github.com/BostonTechie" target="_blank" class="social-link w-inline-block"><img src="/images/git.png" width="18" alt="github link"></a>
+            </div>
+          </nav>
+</div>
+
+
+<script src="/js/currencyRender.js"></script>
+<script src="/js/mathChecker.js"></script>
+
+</body>
+</html>

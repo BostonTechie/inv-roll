@@ -1,0 +1,37 @@
+{
+  "name": "investment-roll",
+  "version": "1.0.0",
+  "description": "<div id=\"top\"></div>\r <!--\r *** Thanks for checking out the Best-README-Template. If you have a suggestion\r *** that would make this better, please fork the repo and create a pull request\r *** or simply open an issue with the tag \"enhancement\".\r *** Don't forget to give the project a star!\r *** Thanks again! Now go create something AMAZING! :D\r -->",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BostonTechie/Investment-roll.git"
+  },
+  "keywords": [],
+  "author": "Andrew Urquhart",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BostonTechie/Investment-roll/issues"
+  },
+  "homepage": "https://github.com/BostonTechie/Investment-roll#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "env": "^0.0.2",
+    "express": "^4.17.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.2",
+    "lodash": "^4.17.21",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.1.5",
+    "multer": "^1.4.4"
+  }
+}

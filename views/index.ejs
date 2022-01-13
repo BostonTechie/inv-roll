@@ -1,0 +1,69 @@
+
+
+<Table class="table sticky">
+    <thead id="indexList">
+    
+       <tr>
+      
+           <th>Edit </th>
+           <th>Name </th>
+           <th>Date </th>
+           <th>Beginning Balance </th>
+           <th>Purchases </th>
+           <th>Income </th>
+           <th>Withdrawals </th>
+           <th>Realized Gains/(Loss) </th>
+           <th>Unrealized Gains/(Loss) </th>
+           <th>Fees </th>
+           <th>Ending Balance </th>
+           <th style="background-color: #a5c926; text-align: center;">
+                <a style="background-color: #a5c926"href="/index/home"> 
+                    <img src="/images/564-5647199_home-sweet-home-clip-art.png" width="25" alt="home link">
+                </a>
+            </th>  
+       </tr>
+   </thead>
+   <tbody>
+       <tr>
+           <td colspan="100"><button onClick="window.location.href='/index/new'">New Investment Entry</button></td>
+       </tr>
+    <% rollData.forEach ((rollData, index) => { %>
+        <tr>
+            <td>
+                <a href="/index/<%=rollData.id %>"> 
+                edit entry
+            </td>
+       
+            <td><%=rollData.name%></td>
+        
+            <td><%=rollData.statementDate%></td>
+        
+            <td><div class='currencyRender'><%=rollData.beginningBalance%></div></td>
+        
+            <td><div class='currencyRender'><%=rollData.purchases%></div></td>
+       
+            <td><div class='currencyRender'><%=rollData.income%></div></td>
+       
+            <td><div class='currencyRender'><%=rollData.withdrawals%></div></td>
+       
+            <td> <div class='currencyRender'><%=rollData.realized%></div></td>
+       
+            <td><div class='currencyRender'><%=rollData.unrealized%></div></td>
+      
+            <td><div class='currencyRender'><%=rollData.fees%></div></td>
+       
+            <td><div class='currencyRender'><%=rollData.endingBalance%></div></td>
+
+            <td><form action='/index/<%= rollData.id%>?_method=DELETE' method='POST'>
+                <input class="hoverDelete" type="submit" value='Delete this item'> 
+            </form></td>
+        </tr>
+   
+
+
+    <% }) %>   
+
+   </tbody>
+</table>
+   
+<script src="/js/currencyRender.js"></script>
