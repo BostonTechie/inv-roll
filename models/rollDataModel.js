@@ -11,7 +11,10 @@ const rollDataSchema = new mongoose.Schema({
     unrealized: Number,
     fees: Number,
     endingBalance: Number,
-    myupload: String
+    myupload: {
+        Data: Buffer,
+        ContentType: String,
+    }
 })
 
 const rollDataModel = mongoose.model('rollforward',  rollDataSchema)

@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const multer = require('multer')
+const storage = multer.memoryStorage()
+const uploads = multer({storage:storage})
 const RollData= require('../models/rollDataModel')
 
 // The home route will navigate to the home.ejs
@@ -10,6 +12,12 @@ router.get('/home', (req, res) => {
 
 })
 
+// The index route will navigate to the index.ejs
+router.get('/files', (req, res) => { 
+  RollData.find({},(err,rollData)=> {
+    res.json({rollData})
+  })
+})
 
 // The index route will navigate to the index.ejs
 router.get('/', (req, res) => { 
@@ -21,26 +29,47 @@ router.get('/', (req, res) => {
 
 // multer set up
 
-const filesStorageEngine = multer.diskStorage({
-  destination: (req, file, cb) => {
-     cb(null, './uploads')
-   },
-   filename: (req, file, cb) => {
-     cb(null, Date.now() + '--' + file.originalname)
-   },
- })
- const upload = multer({storage:filesStorageEngine})
 
+// Filter by image size/file type
+const fileFilter = (req, file, cb) => {
 
+  //if the filetype is not right
+  if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png'|| file.mimetype === 'application/pdf') {
+      cb(null, true)
+  } else {
+      cb(null, false)
+  }
+}
+const upload = multer({
+  storage: storage,
 
+     
+  fileFilter: fileFilter
+})
 
 // The post route will navigate to the index after posting a new entry from the new ejs
-router.post('/', upload.single('myupload'), (req, res, next)=> {
+router.post('/', upload.single('myupload'), async (req, res, next)=> {
 
-  RollData.create(req.body, (err, createInvEntry) =>{
-    
-    res.redirect('/index')
+  const product = ({
+      name: req.body.name,
+      statementDate: req.body.statementDate,
+      beginningBalance: req.body.beginningBalance,
+      purchases: req.body.purchases,
+      income: req.body.income,
+      withdrawals: req.body.withdrawals,
+      realized: req.body.realized,
+      unrealized: req.body.unrealized,
+      fees: req.body.fees,
+      endingBalance: req.body.endingBalance,
+      myupload: {
+        data: req.file.buffer,
+        ContentType: req.file.mimetype
+      }
   })
+
+  const createNewProduct = await RollData.create(product)
+    res.redirect('/index')
+
 })
 
 // This route will delete an entry and navigate to the index view
