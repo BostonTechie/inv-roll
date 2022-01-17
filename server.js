@@ -12,9 +12,6 @@ const invController = require('./controller/invController')
 
 
 
-
-
-
 // Config ---------------
 // because we specific the public folder as the holder of all our css and other public folders we don't have to do a relative path in the ejs view wee can just put skelton.css  <link rel="./css/stylesheet" href="./css/skeleton.css">
 

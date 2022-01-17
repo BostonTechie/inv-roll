@@ -1,6 +1,9 @@
+<h3>Investment Roll</h3>
+<button style="float: right;"onClick="window.location.href='/index/new'">New Investment Entry</button>
+  <button style="float: right;" id="btnExport">EXPORT Excel</button>
 
 
-<Table class="table sticky">
+<Table id='example' >
     <thead id="indexList">
     
        <tr>
@@ -26,9 +29,7 @@
        </tr>
    </thead>
    <tbody>
-       <tr>
-           <td colspan="100"><button onClick="window.location.href='/index/new'">New Investment Entry</button></td>
-       </tr>
+    
     <% rollData.forEach ((rollData, index) => { %>
         <tr>
             <td>
@@ -71,3 +72,19 @@
 </table>
    
 <script src="/js/currencyRender.js"></script>
+<script> $(document).ready( function () {
+
+    // https://stackoverflow.com/questions/22317951/export-html-table-data-to-excel-using-javascript-jquery-is-not-working-properl?rq=1
+
+
+    $('#example').DataTable();
+    $("#btnExport").click(function() {
+        let table = document.getElementsByTagName("table");
+        TableToExcel.convert(table[0], { // html code may contain multiple tables so here we are referring to 1st table tag
+           name: `export.xlsx`, // fileName you could use any name
+           sheet: {
+              name: 'Sheet 1' // sheetName
+           }
+        });
+    });
+} );</script>
