@@ -19,7 +19,7 @@
            <th>Unrealized Gains/(Loss) </th>
            <th>Fees </th>
            <th>Ending Balance </th>
-           <th>document </th>
+         
 
            <th style="background-color: #a5c926; text-align: center;">
                 <a style="background-color: #a5c926"href="/index/home"> 
@@ -56,8 +56,6 @@
             <td><div class='currencyRender'><%=rollData.fees%></div></td>
        
             <td><div class='currencyRender'><%=rollData.endingBalance%></div></td>
-
-            <td><div><%=rollData.filename%></div></td>
 
             <td><form action='/index/<%= rollData.id%>?_method=DELETE' method='POST'>
                 <input class="hoverDelete" type="submit" value='Delete this item'> 
