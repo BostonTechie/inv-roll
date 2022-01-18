@@ -1,22 +1,6 @@
 
-<html lang="en">
-   <head>
-       <meta charset="UTF-8">
-       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <title>Document</title>
-       <style>
-           html, body {
-           height: 59%;
-           }
-       </style>
-   </head>
-   <body>
-
-      
-
-      <img class ="formPic" src="/images/flower.PNG" alt="flower"> 
-      <legend style="margin-top:1em">Showing the detail for <%=rollData.name%> on <%=rollData.statementDate%></legend>
+<img class ="formPic" src="/images/flower.PNG" alt="flower"> 
+<legend style="margin-top:1em">Showing the detail for <%=rollData.name%> on <%=rollData.statementDate%></legend>
    
 
 <fieldset>
@@ -62,7 +46,7 @@
 
 
 <form action='/index/<%= rollData.id%>?_method=DELETE' method='POST'>
-    <input style="background-color: red; font-weight: 800;"type="submit" value='Delete this item'> 
+   <input style="background-color: red; font-weight: 800;"type="submit" value='Delete this item'> 
 </form>
 
 
@@ -70,5 +54,3 @@
 
 
 <script src="/js/currencyRender.js"></script>
-</body>
-</html>

@@ -114,7 +114,7 @@ $('td').change(() => {
   let dateValid = $('#statementDate').val()
 
   // checks to see if the data entry would roll or not (does everything add up)
-  mathCheck  = ((bBalance + purchases + income + withdrawals + realized +unrealized +fees)-endingBalance)
+  mathCheck  = ((purchases + income + withdrawals + realized +unrealized +fees)-endingBalance +bBalance)
    
 
   $('#mathCalc').empty()

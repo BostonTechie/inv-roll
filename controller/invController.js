@@ -1,23 +1,17 @@
 const express = require('express')
 const router = express.Router()
 const multer = require('multer')
+const bodyParser = require("body-parser")
 const storage = multer.memoryStorage()
-const uploads = multer({storage:storage})
 const RollData= require('../models/rollDataModel')
+
+
 
 // The home route will navigate to the home.ejs
 router.get('/home', (req, res) => { 
- 
-    res.render('home')
-
+  res.render('home')
 })
 
-// The index route will navigate to the index.ejs
-router.get('/files', (req, res) => { 
-  RollData.find({},(err,rollData)=> {
-    res.json({rollData})
-  })
-})
 
 // The index route will navigate to the index.ejs
 router.get('/', (req, res) => { 
@@ -27,9 +21,7 @@ router.get('/', (req, res) => {
 })
 
 
-// multer set up
-
-
+// multer set up-------
 // Filter by image size/file type
 const fileFilter = (req, file, cb) => {
 
@@ -66,6 +58,8 @@ router.post('/', upload.single('myupload'), async (req, res, next)=> {
         ContentType: req.file.mimetype
       }
   })
+
+
 
   const createNewProduct = await RollData.create(product)
     res.redirect('/index')

@@ -7,14 +7,6 @@
     padding: 0;
 }
 
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  text-align: right;
-}
-
 html, body, #Container
 {
     height: 98.5%;
@@ -149,4 +141,13 @@ width:45%;
   padding-top: 2%;
   width: 50px;
   
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: right;
+  background-color: #54da71;
 }
