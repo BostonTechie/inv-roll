@@ -19,11 +19,6 @@ const invController = require('./controller/invController')
 app.use(express.static('public'))
 app.use(methodOverride('_method'));
 
-const routeHit = (req,res,next) =>{
-    next()
-}
-app.use(routeHit)
-
 
 
 app.use(express.urlencoded({extended:false}));
