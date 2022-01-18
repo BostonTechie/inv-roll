@@ -13,6 +13,13 @@ router.get('/home', (req, res) => {
 })
 
 
+// The home route will navigate to the home.ejs
+router.get('/report', (req, res) => { 
+  RollData.find({},(err,rollData)=> {
+    res.render('report',{rollData})
+  })
+})
+
 // The index route will navigate to the index.ejs
 router.get('/', (req, res) => { 
   RollData.find({},(err,rollData)=> {

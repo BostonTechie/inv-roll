@@ -3,6 +3,18 @@
 
 I have selected building an investment roll-forward to assist the speed of day to day accounting needs of a firm.  You can log and roll forward investment information, making reconciliation easier.
 
+### TECHNOLOGY Used
+
+ HTML
+* CSS
+* JavaScript
+* JQuery /  JQuery Data Tables
+* MongoDB
+* NodeJS/Express
+* Figma
+* Visual studio code editor
+
+
 ### MVP
 
 
@@ -54,10 +66,7 @@ Route | Method | Description
     * As a user, I want an easy, user-friendly way to create a new investment
     * As a user, I want an easy, user-friendly way to create data and log that monthly data into a roll forward format
     * As a user, I expect the computer to check my math to ensure proper data entry
-    * As a user, I expect the computer to make sure my data properly rolls from month to month
-    * As a user, I expect the computer to sum up the year by general ledger category
-
-
+    
 
 ### Wireframes
 ![image](https://media.git.generalassemb.ly/user/38962/files/82890d80-6356-11ec-9601-4c84025fc63d)
